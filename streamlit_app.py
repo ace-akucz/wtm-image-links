@@ -1,8 +1,9 @@
 import io
 import streamlit as st
 import openpyxl
-from acenet_url import acenet_image_url
 
+def acenet_image_url(sku: str) -> str:
+    return f"https://images.aceservices.com/{sku[:2]}/{sku[2:4]}/{sku}_A.eps_High.jpg"
 
 def process_file(input_bytes):
     wb = openpyxl.load_workbook(io.BytesIO(input_bytes))
