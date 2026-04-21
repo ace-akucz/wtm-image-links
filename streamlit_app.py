@@ -8,6 +8,7 @@ def acenet_image_url(sku: str) -> str:
 def process_file(input_bytes):
     wb = openpyxl.load_workbook(io.BytesIO(input_bytes))
     ws = wb.active
+    ws.sheet_format.defaultRowHeight = 60
     count = 0
     for row in range(4, ws.max_row + 1):
         sku = ws.cell(row=row, column=11).value  # Column K = Article No
